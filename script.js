@@ -34,8 +34,12 @@ var li2 = document.createElement("li");
 var li3 = document.createElement("li");
 var li4 = document.createElement("li");
 
-h1El.textContent = "Question 1";
-choicesEl.textContent = "What does the abbreviation DOM stand for : ";
+// h1El.textContent = "Question 1";
+// infoEl.textContent = "What does the abbreviation DOM stand for : ";
+li1.textContent = "Decipher Over Method";
+li2.textContent = "Document Object Model";
+li3.textContent = "Document Over Math";
+li4.textContent = "Decoding Object Maker";
 
 
 
@@ -51,9 +55,36 @@ h1El.setAttribute("style", "margin:auto; width:50%; text-align:center;");
 choicesEl.setAttribute("style", "margin:auto; width:50%; text-align:center; font-size:20px;");
 infoEl.setAttribute("style", "margin:auto; width:50%; text-align:center;");
 
+// Add ordered list items choices options
+choicesEl.appendChild(li1);
+choicesEl.appendChild(li2);
+choicesEl.appendChild(li3);
+choicesEl.appendChild(li4);
+
+
 
 
 // script to initiate start button
+
+// Access toggle switch HTML element
+var start = document.querySelector("#start");
+var startScreen = document.querySelector(".startScreen");
+
+
+function showText(event) {
+    event.preventDefault();
+    var startScreen = "What does the abbreviation DOM stand for : " + start.value + ".";
+    startScreen.textContent = startScreen;
+}
+
+
+
+
+
+    
+  // Add listener to submit element
+  start.addEventListener("click", showText );
+
 
 
 
