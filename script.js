@@ -1,19 +1,40 @@
-// setting variables for time
 var time = document.querySelector('#time');
 
-var timeSecond = 5;
 
-// creating code to countdown (testing from 5 to 0)
 
-time.innerHTML = `00:${timeSecond}`;
+// Attach event listener to start button to call startGame function on click
+start.addEventListener("click", startGame);
 
-const countDown = setInterval (()=>{
-    timeSecond--;
+
+
+// The startGame function is called when the start button is clicked
+function startGame() {
+    isWin = false;
+    timeSecond = 60;
+    //  setting variables for time  
+    startTimer()
+  }
+
+
+
+  // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
+function startTimer() {
+    
+    // Sets timer
+    var timeSecond = 60;
+    
     time.innerHTML = `00:${timeSecond}`;
-    if(timeSecond <= 0 || timeSecond <1){
-        clearInterval(countDown)
-    }
-},1000)
+
+    const countDown = setInterval (()=>{
+        timeSecond--;
+        time.innerHTML = `00:${timeSecond}`;
+        if(timeSecond <= 0 || timeSecond <1){
+            clearInterval(countDown)
+        }
+    },1000)
+    
+        }
+
 
 
 
@@ -71,19 +92,34 @@ var start = document.querySelector("#start");
 var startScreen = document.querySelector(".startScreen");
 
 
-function showText(event) {
-    event.preventDefault();
-    var startScreen = "What does the abbreviation DOM stand for : " + start.value + ".";
-    startScreen.textContent = startScreen;
+const startButton = document.getElementById("start");
+const questions = document.getElementById("questions")
+
+// Add listener to submit element
+const element = document.getElementById("start");
+element.addEventListener("click", function() {
+  document.getElementById("question").innerHTML = "Hello World";
+});
+
+
+function startQuiz() {
+    console.log("Started Game");
+    startButton.classList.remove("hide")
+    questions.classList.add("hide")
+
 }
 
 
 
 
+//     event.preventDefault();
+//     var startScreen = "What does the abbreviation DOM stand for : " + start.value + ".";
+//     startScreen.textContent = startScreen;
+// }
+
 
     
-  // Add listener to submit element
-  start.addEventListener("click", showText );
+  
 
 
 
