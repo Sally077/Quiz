@@ -4,44 +4,9 @@ var startScreen = document.querySelector(".startScreen");
 var questions = document.querySelector("#questions");
 var choices = document.querySelector("#choices");
 var question = document.querySelector("#question");
+var finalScore = document.querySelector("#finalScore");
+var initials = document.querySelector("#initials");
 
-
-var currentQuestion = {};
-var correctAnswers = true;
-score = 0;
-counter = 0;
-// creating an object model (data dictionary thing)
-availableQuestions = [];
-
-var questions = [{
-    question : "What does the abbreviation DOM stand for : ",
-    choice1  : "Decipher Over Method",
-    choice2  : "Document Object Model",
-    choice3  : "Document Over Math",
-    choice4  : "Decoding Object Maker",
-    answer  : 2,
-},
-]
-
-var questions = [{
-    question : "Append array can be used to do the following : ",
-    choice1  : "Delete variables in the array",
-    choice2  : "Sort variables in the array",
-    choice3  : "Filter variables in the array",
-    choice4  : "Add items to the array",
-    answer  : 4,
-},
-]
-
-var questions = [{
-    question : "Which code is correct for creating a count controlled loop? : ",
-    choice1  : "for (var i = 0; i < variable.length; i++)",
-    choice2  : "while (true === count)",
-    choice3  : "for i in range (1,20):",
-    choice4  : "while i == i * 1",
-    answer  : 1,
-}
-]
 
 
 
@@ -55,7 +20,8 @@ function startGame() {
 
     timeSecond = 60;
 
-   
+     question.classList.toggle("reveal");
+    //  choices.classList.toggle("reveal");
 
      
     startTimer()
@@ -99,7 +65,7 @@ var infoEl = document.createElement("div");
     var li4 = document.createElement("li");
 
 
- // h1El.textContent = "Question 1";
+ h1El.textContent = "Question 1";
  infoEl.textContent = "What does the abbreviation DOM stand for : ";
  li1.textContent = "Decipher Over Method";
  li2.textContent = "Document Object Model";
@@ -129,7 +95,6 @@ choicesEl.appendChild(li4);
 
 
 
-// Access toggle switch HTML element
 
 
 
@@ -152,6 +117,58 @@ function startQuiz() {
 
 
 
+// reboot
+
+// pseudocode
+
+/* Initiate button to set timer
+show question and choices
+(process)when user clicks answer return value true=== || or false===
+when false time -10 sec 
+when true score +10 points
+next question (process)
+if timer = 0 go to end-screen
+if quiz completed enter initials
+show score  (use local server to store scores)
+
+ */
+
+// code to edit local storage
+renderLastRegistered();
+
+function displayMessage(type, message) {
+  msgDiv.textContent = message;
+  msgDiv.setAttribute("class", type);
+}
+
+function renderLastRegistered() {
+  var initals = localStorage.getItem("#initials");
+  var finalScore = localStorage.getItem("#finalScore");
+
+  if (!initals || !finalScore) {
+    return;
+  }
+
+  userinitalsSpan.textContent = initials;
+  userfinalScoreSpan.textContent = finalScore;
+}
+
+ clear.addEventListener("click", function(event) {
+    //need event clear
+    event.preventDefault();
+
+//  ------------to be completed
+
+  if (intials === "") {
+    displayMessage("error", "initials cannot be blank");
+  } else {
+    displayMessage("success", "Your Score is " +finalScore);
+
+    localStorage.setItem("intials", initials);
+    localStorage.setItem("finalScore", finalScore);
+    renderLastRegistered();
+  }
+});
 
     
   
