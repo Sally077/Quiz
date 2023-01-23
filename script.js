@@ -1,14 +1,3 @@
-// var time = document.querySelector('#time');
-// var start = document.querySelector("#start");
-// var startScreen = document.querySelector(".startScreen");
-// var questions = document.querySelector("#questions");
-// var choices = document.querySelector("#choices");
-// var question = document.querySelector("#question");
-// var finalScore = document.querySelector("#finalScore");
-// var initials = document.querySelector("#initials");
-
-
-
 
 // Attach event listener to start button to call startGame function on click
 start.addEventListener("click", startGame);
@@ -110,6 +99,8 @@ function displayQuestion() {
     [1];
     choice2.innerHTML = questionBank[i].choice
     [2];
+    choice3.innerHTML = questionBank[i].choice
+    [3];
     stat.innerHTML = "Question"+' '+(i+1)+ ' '
     +'of'+' '+questionBank.length;
     
@@ -130,6 +121,8 @@ function calcScore(e){
     else{
         document.getElementById(e.id).style.
        background = "red";
+    //    added code to take away 10 seconds if answer incorrect
+       timeSecond = timeSecond - 10;
     
     }
     setTimeout(nextQuestion,300);
@@ -181,54 +174,6 @@ displayQuestion();
 
 
 
-// adding the title and choices creating elements
-
-// var body = document.body;
-// var h1El = document.createElement("h1");
-// var choicesEl = document.createElement("div");
-// var infoEl = document.createElement("div");
-
-
-
-
-//  h1El.textContent = "Question 1";
-//  infoEl.textContent = "What does the abbreviation DOM stand for : ";
-//  li1.textContent = "Decipher Over Method";
-//  li2.textContent = "Document Object Model";
-//  li3.textContent = "Document Over Math";
-//  li4.textContent = "Decoding Object Maker";
-
-
-
-// body.appendChild(h1El);
-// body.appendChild(infoEl);
-// choicesEl.appendChild(listEl)
-// body.appendChild(choicesEl);
-// ;
-// // Append ordered list 
-// choicesEl.appendChild(listEl);
-
-// h1El.setAttribute("style", "margin:auto; width:50%; text-align:center;");
-// choicesEl.setAttribute("style", "margin:auto; width:50%; text-align:center; font-size:20px;");
-// infoEl.setAttribute("style", "margin:auto; width:50%; text-align:center;");
-
-// // Add ordered list items choices options
-// choicesEl.appendChild(li1);
-// choicesEl.appendChild(li2);
-// choicesEl.appendChild(li3);
-// choicesEl.appendChild(li4);
-
-//     // Create ordered list element
-//     var listEl = document.createElement("ol");
-//     // Create ordered list items
-    
-//     var li1 = document.createElement("li");
-//     var li2 = document.createElement("li");
-//     var li3 = document.createElement("li");
-//     var li4 = document.createElement("li");
-
-
-
 
 // reboot
 
@@ -249,10 +194,7 @@ show score  (use local server to store scores)
 // code to edit local storage
 // renderLastRegistered();
 
-// function displayMessage(type, message) {
-//   msgDiv.textContent = message;
-//   msgDiv.setAttribute("class", type);
-// }
+
 
 function renderLastRegistered() {
   var initals = localStorage.getItem("#initials");
