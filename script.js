@@ -1,11 +1,11 @@
-var time = document.querySelector('#time');
-var start = document.querySelector("#start");
-var startScreen = document.querySelector(".startScreen");
-var questions = document.querySelector("#questions");
-var choices = document.querySelector("#choices");
-var question = document.querySelector("#question");
-var finalScore = document.querySelector("#finalScore");
-var initials = document.querySelector("#initials");
+// var time = document.querySelector('#time');
+// var start = document.querySelector("#start");
+// var startScreen = document.querySelector(".startScreen");
+// var questions = document.querySelector("#questions");
+// var choices = document.querySelector("#choices");
+// var question = document.querySelector("#question");
+// var finalScore = document.querySelector("#finalScore");
+// var initials = document.querySelector("#initials");
 
 
 
@@ -91,27 +91,27 @@ var choice1 = document.getElementById
 ("choice1");
 var choice2 = document.getElementById
 ("choice2");
-var choices = document.querySelectorAll(".next");
+var next = document.querySelector(".next");
 var points = document.getElementById("score");
 var span = document.querySelectorAll('span');
 var i = 0;
 var score = 0;
 
 // display questions
-function displayQuestions() {
+function displayQuestion() {
     for (var a=0;a<span.length;a++){
-        span[a].style.background ="none";
+        span[a].style.background = "none";
     }
     question.innerHTML = "Q." +(i+1)+ " "
     +questionBank[i].question;
-    choice0.innerHTML = questionBank[i].option
+    choice0.innerHTML = questionBank[i].choice
     [0];
-    choice1.innerHTML = questionBank[i].option
+    choice1.innerHTML = questionBank[i].choice
     [1];
-    choice2.innerHTML = questionBank[i].option
+    choice2.innerHTML = questionBank[i].choice
     [2];
-    statusbar.innerHTML = "Question"+" "+(i+1)+ " "
-    +"of"+" "+questionBank.length;
+    stat.innerHTML = "Question"+' '+(i+1)+ ' '
+    +'of'+' '+questionBank.length;
     
 }
 
@@ -135,8 +135,10 @@ function calcScore(e){
     setTimeout(nextQuestion,300);
 }
 
-function nextQuestion(){
-    if(i<questionBank.length-1)
+//display next question
+
+function nextQuestion() {
+    if(i < questionBank.length-1)
     {
       i = i + 1;
       displayQuestion();  
@@ -149,7 +151,7 @@ function nextQuestion(){
     }
 }
 // event click
-nextQuestion.addEventListener("click", nextQuestion);
+next.addEventListener("click", nextQuestion);
 
 // return to Quiz Button event
 function backToQuiz(){
@@ -245,12 +247,12 @@ show score  (use local server to store scores)
  */
 
 // code to edit local storage
-renderLastRegistered();
+// renderLastRegistered();
 
-function displayMessage(type, message) {
-  msgDiv.textContent = message;
-  msgDiv.setAttribute("class", type);
-}
+// function displayMessage(type, message) {
+//   msgDiv.textContent = message;
+//   msgDiv.setAttribute("class", type);
+// }
 
 function renderLastRegistered() {
   var initals = localStorage.getItem("#initials");
