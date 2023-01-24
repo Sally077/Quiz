@@ -74,7 +74,7 @@ Provide instructions and examples for use. Include screenshots as needed.
 To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
 
 
-
+<img src="sally077-github-io-Quiz.jpg">
 
 
 ## Credits
@@ -133,11 +133,11 @@ N/A
 I have created a series of tests as I went along and took screenshots of some of the tests I tried when I ran my code.
 
 Test 1 Testing to see if timer counts down (test data set to 5s) top right
-
+<img src="Test_1.png">
 Test 2 Console log to check that start button activates when pressed.
-
+<img src="Test_2.png">
 Test 3 Checking that the colour will show green when the right question is selected
-
+<img src="Test_3.png">
 Test 4 Checking that the colour will show  red when the wrong question is selected
 
 Test 5 Testing to see if once the answer is clicked the next question will appear
