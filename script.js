@@ -194,7 +194,7 @@ show score  (use local server to store scores)
 // code to edit local storage
 // renderLastRegistered();
 
-
+// TO DO
 
 function renderLastRegistered() {
   var initals = localStorage.getItem("#initials");
